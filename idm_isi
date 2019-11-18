@@ -1,0 +1,114 @@
+
+
+CÁLCULO DE AÑOS BISIESTOS...
+
+
+public class Bisiestos {
+// Devuelve true si año es bisiesto, false en caso contrario
+// Eleva la excepción InvalidParameter si a~no no es un parámetro válido
+	public boolean esBisiesto(int año) throws InvalidParameter {
+//
+	}
+}
+
+
+1) Partición de la entrada en bloques según la funcionalidad.
+
+
+q1 = "¿El año es bisiesto?"		a1 = True	a2 = False
+
+q2 = "¿El año es válido?"		b1 = True	b2 = False
+
+q3 = "¿Es múlitplo de 4?"		c1 = True	c2 = False
+
+q4 = "¿Es múltiplo de 100?"		d1 = True	d2 = False
+
+q5 = "¿Es múltiplo de 400?"		e1 = True	e2 = False
+
+
+2) Criterios de cobertura.
+
+
+A la hora de ver todos los posibles casos, hay que tener en cuenta que no todos tienen sentido, ya que algunos son redundantes. En nuestro caso si un número es múltiplo de 400, sabemos que es múltiplo de 4 y de 100, y de igual forma si es múltiplo de 100 es múltiplo de 4.
+
+	-Si q5=True -> q3=q4=True
+	-Si q4=True -> q3=True
+	-Si q4=False -> q5=False
+	-Si q3=False -> q4=q5=False
+	-Si q2=False -> q1=q3=q4=q5=False
+	-Si q1=True -> q3=True
+	-Si q4=True y q5=False -> q1=False
+	-Si q4=True y q5=True -> q1=True
+	-Si q3=True y q4=False -> q1=True
+
+
+Todos los posibles casos:	a1b1c1d1e1	a1b1c1d2e2	a2b2c2d2e2	a2b1c1d1e2	a2b1c2d2e2
+				
+				1200		120		-132		300		3423
+
+
+
+
+EMBOTELLADORA...
+
+
+1) Partición de la entrada en bloques según la funcionalidad.
+
+
+q1 = "¿Hay botellas grandes?"	a1 = true	a2 = false
+
+q2 = "¿Hay botellas pequeñas?"	b1 = true	b2 = false
+
+q3 = "¿Se puede embotellar todo el líquido?"	c1 = true	c2 = false
+
+q4 = "¿Sobran botellas grandes?"	d1 = true	d2 = false
+
+q5 = "¿Sobran botellas pequeñas?"	e1 = true	e2 = false
+
+
+2) Criterios de cobertura.
+
+
+Restricciones:
+
+	- si q1 = false -> q4 = false
+	- si q2 = false -> q5 = false
+	- si q3 = false -> q4 = q5 = false
+	- si q4 = true -> q1 = q3 = true
+	- si q5 = true -> q2 = q3 = true
+
+Posibles casos:
+
+a1b1c1d1e1	a1b1c1d1e2	a1b1c1d2e1	a1b1c1d2e2	a1b1c2d2e2
+a1b2c1d1e2	a1b2c1d2e2	a1b2c2d2e2	a2b1c1d2e1	a2b1c1d2e2
+a2b1c2d2e2	a2b2c2d2e2
+
+
+
+DESCUENTO BLACK FRIDAY...
+
+
+1) Partición de los datos en bloques según su funcionalidad.
+
+q2 = "¿El precio original es negativo?"	b1 = true	b2 = true
+
+q3 = "¿El porcentaje de descuento es un número negativo?"	c1 = true	c2 = false
+
+q4 = "¿El porcentaje de descuento es mayor que cien?"	d1 = true	d2 = false
+
+
+2) Criterios de cobertura.
+
+
+Restricciones:
+
+	- si q3 = true -> q4 = false
+	- si q4 = true -> q3 = false
+
+
+Posibles casos:
+
+b1c1d2		b1c2d1		b1c2d2	
+b2c1d2		b2c2d1		b2c2d2	
+
+
