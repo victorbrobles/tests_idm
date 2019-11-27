@@ -112,3 +112,37 @@ b1c1d2		b1c2d1		b1c2d2
 b2c1d2		b2c2d1		b2c2d2	
 
 
+
+CONVERSION DE NUMEROS ROMANOS A BASE DIEZ
+
+1) Partición de los datos en bloques según su funcionalidad.
+
+q1 = "¿Es una letra de los números romano?"	a1 = true	a2 = false
+
+q2 = "¿Es una letra?"	b1 = true	b2 = true
+
+q3 = "¿Es un numero?"	c1 = true	c2 = false
+
+q4 = "¿numero negativo?"	d1 = true	d2 = false
+
+
+2) Criterios de cobertura.
+
+Restricciones:
+
+	- si q1 = true -> q2 = true
+	- si q1 = true -> q3=q4 = false
+	- si q2 = true -> q3=q4 = false
+	- si q3 = true -> q1 = q2 = false
+	- si q4 = true -> q1 = q2 = false
+
+Posibles casos:
+
+a1b1c2d2	a2b2c1d1	a2b1c2d2	a2b2c1d2
+   V                -1              J               4      
+
+
+
+
+
+
