@@ -16,7 +16,7 @@ public class RomanNumeral {
 		for(int i = 0; i < s.length(); i++){
 		        letra = s.charAt(i);
 		        for(int j = 0; j < Rom.length; j++){
-		            if(letra == Rom[j]){               
+		            if(letra == ' ' || letra == 'I' || letra == 'V' || 					letra == 'X' || letra == 'L' || letra == 'C' || 				letra == 'D' || letra == 'M'){               
 		                        suma = suma + valor [j];
 		                    if( ant < valor[j]){
 		                    	suma = suma - ant*2 ;

@@ -11,7 +11,11 @@ public class RomanNumeralTest {
 	@Test public void test1() 
 	   {
 	      String s = "V";
-	      assertEquals("secondPosition", 5, RomanNumeral.convierte(s));
+	      try {
+	      	assertEquals("secondPosition", 5, RomanNumeral.convierte(s));
+	      } catch (InvalidParameter e) {
+	        fail ("5 expected");
+	      }
 	   }
 	
 	 @Test public void test2() 
@@ -19,20 +23,20 @@ public class RomanNumeralTest {
 	     String s = "-1";
 	      try {
 	    	  RomanNumeral.convierte(s);
-	      } catch (InvalidParameterException e) {
-	    	  fail ("NoSolution expected");
+	      } catch (InvalidParameter e) {
+	    	  return ;
 	      }
-	      
+	      fail ("InvalidParameter expected");
 	   }
 	 @Test public void test3() 
 	   {
 	     String s = "J";
 	      try {
 	    	  RomanNumeral.convierte(s);
-	      } catch (InvalidParameterException e) {
-	    	  fail("InvalidParameterException expected");
+	      } catch (InvalidParameter e) {
+	    	  return ;
 	      }
-	      
+	      fail("InvalidParameter expected");
 	   }
 	
 	 @Test public void test4() 
@@ -40,9 +44,9 @@ public class RomanNumeralTest {
 	     String s = "4";
 	      try {
 	    	  RomanNumeral.convierte(s);
-	      } catch (InvalidParameterException e) {
-	    	  fail ("NoSolution expected");
+	      } catch (InvalidParameter e) {
+	    	  return ;
 	      }
-	 
+	 	fail ("InvalidParameter expected");
 	   }
 }
